@@ -21,89 +21,19 @@ namespace AddDaysToDate
             Console.Write("Enter numbers of days you want to add: ");
             //int addDay = int.Parse(Console.ReadLine());
             int addDay = int.Parse(Console.ReadLine());
+            //find year
             year = Sup.FindYear(year, addDay, day, month);
-            addDay = Sup.FindaddDay(addDay);
-            month = Sup.findMonth(day, month, year, addDay);
+            
+            //find Month
+            month = Sup.FindMonth(day, month, year, addDay);
+            
+            //find day
+            day = Sup.FindDay(day, month, year, addDay);
+           
 
-            //Sup.adddaytoDate(day, month, year, addDay);
-            Console.WriteLine(" test {0}/{1}/{2} {3}", day, month, year, addDay);
+            //print out date (day, month, year, addDay);
+            Console.WriteLine(" Your new date with a {3} days add is (dd/mm/yyyy) {0}/{1}/{2}", day, month, year, addDay);
 
-            // finds months with 31
-            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
-            {
-
-                if (31 < (day + addDay) && month < 12)
-                {
-                    month = (month + 1);
-                    day = day + addDay - 31;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-                else if (31 < (day + addDay) && month >= 12)
-                {
-                    month = 1;
-                    day = day + addDay - 31;
-                    year = (year + 1);
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-                else if (31 == (day + addDay))
-                {
-                    day = 31;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-                else if (31 > (day + addDay))
-                {
-                    day = day + addDay;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-            }
-
-            // finds months with 30
-            if (month == 4 || month == 6 || month == 9 || month == 11)
-            {
-
-                if (30 < (day + addDay))
-                {
-                    month = (month + 1);
-                    day = day + addDay - 30;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-
-                }
-                else if (30 <= (day + addDay))
-                {
-                    day = 30;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-                else if (30 > (day + addDay))
-                {
-                    day = day + addDay;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-
-            }
-
-            // finds months with 29
-            if (month == 2)
-            {
-
-                if (29 < (day + addDay))
-                {
-                    month = (month + 1);
-                    day = day + addDay - 29; ;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-                else if (29 > (day + addDay))
-                {
-                    day = day + addDay;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-                else if (29 == (day + addDay))
-                {
-                    day = day + addDay;
-                    day = 29;
-                    Console.WriteLine("{0}/{1}/{2}", month, day, year);
-                }
-
-            }
         }
     }
 }
